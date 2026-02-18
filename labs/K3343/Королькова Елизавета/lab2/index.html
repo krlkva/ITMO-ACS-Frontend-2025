@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHome - Главная</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        /* Фиксированная высота для всех карточек */
+        .property-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .property-card .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .property-card .card-body .d-flex {
+            margin-top: auto;
+        }
+        
+        /* Одинаковая высота для блока с адресом */
+        .property-card .text-muted {
+            min-height: 42px; 
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-house-heart"></i>MyHome
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="search.html">Поиск</a></li>
+                <li class="nav-item"><a class="nav-link" href="#objects">Объекты</a></li>
+            </ul>
+            <div class="d-flex gap-2">
+                <a href="login.html" class="btn btn-outline-dark login-btn">Вход</a>
+                <a href="register.html" class="btn btn-dark register-btn">Регистрация</a>
+                <a href="profile.html" class="btn btn-outline-dark rounded-circle p-2 user-menu" style="display: none; width: 42px; height: 42px;">
+                    <i class="bi bi-person"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Основной контент -->
+<main class="container my-5">
+
+    <!-- Описание компании -->
+    <section class="mb-5 text-center">
+        <h1 class="display-5 fw-normal mb-4">MyHome — сервис аренды недвижимости</h1>
+        <p class="lead text-muted mx-auto" style="max-width: 800px;">
+        </p>
+    </section>
+
+    <!-- Категории -->
+    <div class="d-flex gap-3 flex-wrap mb-5 justify-content-center">
+        <span class="badge-soft">Квартиры</span>
+        <span class="badge-soft">Дома</span>
+        <span class="badge-soft">Студии</span>
+        <span class="badge-soft">Коммерческие</span>
+        <span class="badge-soft">У озера</span>
+    </div>
+
+    <!-- Популярные объекты -->
+    <section id="objects" class="mb-5">
+        <h2 class="section-title fs-1 mb-4">Популярные предложения</h2>
+        
+        <div class="row g-4">
+            <!-- Карточка 1 -->
+            <div class="col-md-6 col-lg-4 d-flex">
+                <div class="property-card w-100" data-price="45000" data-type="apartment">
+                    <img src="images/2.jpg" 
+                         class="property-img" 
+                         alt="Студия"
+                         style="height: 250px; width: 100%; object-fit: cover;">
+                    <div class="card-body p-4">
+                        <h5 class="card-title">Современная студия в центре</h5>
+                        <p class="text-muted small">ул. Пушкинская, 12 · 45 м² · 2 этаж</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="h5 mb-0">45 000 ₽/мес</span>
+                            <a href="property.html?id=1" class="btn btn-outline-dark">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Карточка 2 -->
+            <div class="col-md-6 col-lg-4 d-flex">
+                <div class="property-card w-100" data-price="150000" data-type="apartment">
+                    <img src="images/3.jpg" 
+                         class="property-img" 
+                         alt="Лофт"
+                         style="height: 250px; width: 100%; object-fit: cover;">
+                    <div class="card-body p-4">
+                        <h5 class="card-title">Квартира в стиле лофт</h5>
+                        <p class="text-muted small">пр. Комендантский, 7 · 75 м²</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="h5 mb-0">75 000 ₽/мес</span>
+                            <a href="property.html?id=2" class="btn btn-outline-dark">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Карточка 3 -->
+            <div class="col-md-6 col-lg-4 d-flex">
+                <div class="property-card w-100" data-price="95000" data-type="apartment">
+                    <img src="images/4.jpg" 
+                         class="property-img" 
+                         alt="Панорама"
+                         style="height: 250px; width: 100%; object-fit: cover;">
+                    <div class="card-body p-4">
+                        <h5 class="card-title">Квартира-студия с панорамными окнами</h5>
+                        <p class="text-muted small">ул. Гавнская, 132 · 50 м²</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="h5 mb-0">55 000 ₽/мес</span>
+                            <a href="property.html?id=3" class="btn btn-outline-dark">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Футер -->
+<footer>
+    <div class="container text-center text-md-start">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <span class="text-muted">MyHome — аренда недвижимости</span>
+            </div>
+            <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                <span class="text-muted small">8 (888) 888-88-88</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Скрипты -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
