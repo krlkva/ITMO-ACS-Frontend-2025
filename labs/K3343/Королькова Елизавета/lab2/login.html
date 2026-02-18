@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - MyHome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MyHome</a>
+            <a href="index.html" class="btn btn-outline-dark">На главную</a>
+        </div>
+    </nav>
+
+    <div class="container" style="max-width: 400px; margin-top: 50px;">
+        <div class="bg-white rounded-4 p-4">
+            <h2 class="text-center mb-4">Вход</h2>
+            
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Пароль</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                
+                <div id="errorMessage" class="alert alert-danger d-none"></div>
+                
+                <button type="submit" class="btn btn-dark w-100 py-2" id="submitBtn">
+                    Войти
+                </button>
+                
+                <p class="text-center mt-3">
+                    Нет аккаунта? <a href="register.html">Зарегистрироваться</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/api.js"></script>
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const errorDiv = document.getElementById('errorMessage');
+        const submitBtn = document.getElementById('submitBtn');
+        
+        try {
+            errorDiv.classList.add('d-none');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Вход...';
+            
+            const user = await api.checkUser(email, password);
+            
+            if (user) {
+                localStorage.setItem('user', JSON.stringify(user));
+                window.location.href = 'profile.html';
+            } else {
+                errorDiv.textContent = 'Неверный email или пароль';
+                errorDiv.classList.remove('d-none');
+            }
+        } catch (error) {
+            errorDiv.textContent = 'Ошибка при входе';
+            errorDiv.classList.remove('d-none');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Войти';
+        }
+    });
+    </script>
+</body>
+</html>
