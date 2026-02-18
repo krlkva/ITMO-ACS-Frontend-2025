@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск - MyHome</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MyHome</a>
+            <div class="d-flex gap-2">
+                <a href="login.html" class="btn btn-outline-dark" id="loginBtn">Вход</a>
+                <a href="profile.html" class="btn btn-outline-dark" id="profileBtn" style="display: none;">Профиль</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <h1 class="mb-4">Поиск недвижимости</h1>
+        
+        <!-- Фильтры -->
+        <div class="bg-white rounded-4 p-4 mb-4">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label class="form-label">Тип</label>
+                    <select class="form-select" id="filterType">
+                        <option value="all">Все типы</option>
+                        <option value="apartment">Квартира</option>
+                        <option value="house">Дом</option>
+                        <option value="loft">Лофт</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-3">
+                    <label class="form-label">Цена до</label>
+                    <input type="number" class="form-control" id="priceTo" placeholder="1 000 000">
+                </div>
+                
+                <div class="col-md-3">
+                    <label class="form-label">Комнат</label>
+                    <select class="form-select" id="rooms">
+                        <option value="all">Любое</option>
+                        <option value="1">1 комната</option>
+                        <option value="2">2 комнаты</option>
+                        <option value="3">3 комнаты</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-3 d-flex align-items-end">
+                    <button class="btn btn-dark w-100" id="applyFilters">
+                        Найти
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Результаты -->
+        <h2 id="resultCount" class="mb-3">Загрузка...</h2>
+        
+        <div class="row g-4" id="propertiesList">
+            <div class="col-12 text-center py-5">
+                <div class="spinner-border text-dark" role="status">
+                    <span class="visually-hidden">Загрузка...</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/api.js"></script>
+    <script>
+    
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+        document.getElementById('loginBtn').style.display = 'none';
+        document.getElementById('profileBtn').style.display = 'block';
+    }
+
+    let allProperties = [];
+
+    // Загрузка всех объектов
+    async function loadProperties() {
+        try {
+            allProperties = await api.getProperties();
+            displayProperties(allProperties);
+        } catch (error) {
+            document.getElementById('propertiesList').innerHTML = '<div class="col-12 text-center py-5">Ошибка загрузки</div>';
+        }
+    }
+
+    // Отображение объектов
+    function displayProperties(properties) {
+        const container = document.getElementById('propertiesList');
+        const countSpan = document.getElementById('resultCount');
+        
+        countSpan.textContent = `Найдено ${properties.length} объектов`;
+        
+        if (properties.length === 0) {
+            container.innerHTML = '<div class="col-12 text-center py-5">Ничего не найдено</div>';
+            return;
+        }
+        
+        container.innerHTML = properties.map(property => `
+            <div class="col-md-6 col-lg-4">
+                <div class="property-card">
+                    <img src="${property.image}" class="property-img" alt="${property.title}">
+                    <div class="card-body p-4">
+                        <h5 class="card-title">${property.title}</h5>
+                        <p class="text-muted small">${property.address} · ${property.area} м²</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="h5 mb-0">${property.price.toLocaleString()} ₽/мес</span>
+                            <a href="property.html?id=${property.id}" class="btn btn-outline-dark">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // Фильтрация
+    function filterProperties() {
+        const type = document.getElementById('filterType').value;
+        const priceTo = parseInt(document.getElementById('priceTo').value) || Infinity;
+        const rooms = document.getElementById('rooms').value;
+        
+        const filtered = allProperties.filter(property => {
+            if (type !== 'all' && property.type !== type) return false;
+            if (property.price > priceTo) return false;
+            if (rooms !== 'all' && property.rooms != rooms) return false;
+            return true;
+        });
+        
+        displayProperties(filtered);
+    }
+
+    document.getElementById('applyFilters').addEventListener('click', filterProperties);
+    
+    // Загрузка при старте
+    loadProperties();
+    </script>
+</body>
+</html>
