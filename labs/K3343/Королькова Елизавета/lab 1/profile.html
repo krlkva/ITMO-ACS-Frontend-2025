@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyHome - Личный кабинет</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-house-heart"></i>MyHome
+        </a>
+        <div class="d-flex gap-2">
+            <span class="btn btn-outline-dark" style="cursor: default;">Елизавета Королькова</span>
+            <a href="index.html" class="btn btn-outline-dark">Выйти</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Личный кабинет -->
+<main class="container my-5">
+    <div class="row">
+        <!-- Боковая панель с информацией пользователя -->
+        <div class="col-lg-4 mb-4">
+            <div class="bg-white rounded-4 p-4">
+                <div class="text-center mb-4">
+                    <div class="avatar avatar-lg mx-auto mb-3">
+                        <i class="bi bi-person-circle fs-1"></i>
+                    </div>
+                    <h4>Елизавета Королькова</h4>
+                    <p class="text-muted">liza@1234.com</p>
+                    <p class="text-muted small">+7 (123) 456-78-90</p>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-dark text-start">
+                        <i class="bi bi-pencil me-2"></i>Редактировать профиль
+                    </button>
+                    <button class="btn btn-outline-dark text-start">
+                        <i class="bi bi-bell me-2"></i>Уведомления
+                    </button>
+                    <button class="btn btn-outline-dark text-start">
+                        <i class="bi bi-shield-check me-2"></i>Сообщения
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Основной контент -->
+        <div class="col-lg-8">
+            <div class="bg-white rounded-4 p-4">
+                <!-- Навигация по вкладкам -->
+                <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="rented-tab" data-bs-toggle="tab" data-bs-target="#rented" type="button" role="tab">Арендовано мной</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="myobjects-tab" data-bs-toggle="tab" data-bs-target="#myobjects" type="button" role="tab">Мои объекты</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="history-tab" data-bs-toggle="tab" data-bs-target="#history" type="button" role="tab">История</button>
+                    </li>
+                </ul>
+                
+                <!-- Содержимое вкладок -->
+                <div class="tab-content mt-4">
+                    <!-- Арендовано мной -->
+                    <div class="tab-pane fade show active" id="rented" role="tabpanel">
+                        <div class="list-group">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Современная студия в центре</h6>
+                                    <p class="text-muted small mb-0">до 10.06.2026 · 45 000 ₽/мес</p>
+                                </div>
+                                <span class="badge bg-success">Активен</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Дом на заливе</h6>
+                                    <p class="text-muted small mb-0">до 01.09.2026 · 150 000 ₽/мес</p>
+                                </div>
+                                <span class="badge bg-success">Активен</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Мои объекты -->
+                    <div class="tab-pane fade" id="myobjects" role="tabpanel">
+                        <div class="list-group">
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Квартира на Ленинском пр</h6>
+                                    <p class="text-muted small mb-0">Сдаётся · 75 000 ₽/мес</p>
+                                </div>
+                                <span class="badge bg-warning">Ожидает</span>
+                            </div>
+                            <div class="list-group-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h6 class="mb-1">Офис на Невском</h6>
+                                    <p class="text-muted small mb-0">Сдан · 120 000 ₽/мес</p>
+                                </div>
+                                <span class="badge bg-secondary">Завершен</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- История сообщений и сделок -->
+                    <div class="tab-pane fade" id="history" role="tabpanel">
+                        <div class="list-group">
+                            <div class="list-group-item">
+                                <div class="d-flex gap-3">
+                                    <i class="bi bi-chat-dots fs-4"></i>
+                                    <div>
+                                        <h6 class="mb-1">Чат с арендодателем</h6>
+                                        <p class="text-muted small mb-1">по объекту "Современная студия в центре"</p>
+                                        <small class="text-muted">2 часа назад</small>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="list-group-item">
+                                <div class="d-flex gap-3">
+                                    <i class="bi bi-file-text fs-4"></i>
+                                    <div>
+                                        <h6 class="mb-1">Сделка #2456</h6>
+                                        <p class="text-muted small mb-1">Дом на заливе · оплачено 150 000 ₽</p>
+                                        <small class="text-muted">15 декабря 2025</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Футер -->
+<footer>
+    <div class="container text-center">
+        <span class="text-muted">MyHome — аренда недвижимости</span>
+    </div>
+</footer>
+
+<!-- Скрипты -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
