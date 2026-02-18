@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "test@test.com",
+      "password": "123456",
+      "firstName": "Тест",
+      "lastName": "Пользователь",
+      "phone": "+7 (999) 123-45-67"
+    },
+    {
+      "id": 1771407764729,
+      "email": "hello@gmail.com",
+      "password": "123456",
+      "firstName": "aaa",
+      "lastName": "aaa",
+      "phone": "77777777777"
+    },
+    {
+      "id": 1771409128991,
+      "email": "test@test.ru",
+      "password": "123456",
+      "firstName": "bbb",
+      "lastName": "bbb",
+      "phone": "12345678910"
+    }
+  ],
+  "properties": [
+    {
+      "id": "1",
+      "title": "Современная студия в центре",
+      "address": "ул. Пушкинская, 12",
+      "area": 45,
+      "floor": 2,
+      "price": 45000,
+      "type": "apartment",
+      "location": "center",
+      "rooms": 1,
+      "description": "Светлая студия после дизайнерского ремонта в центре города.",
+      "image": "images/2.jpg",
+      "ownerId": 1
+    },
+    {
+      "id": "2",
+      "title": "Квартира в стиле лофт",
+      "address": "пр. Комендантский, 7",
+      "area": 75,
+      "floor": 10,
+      "price": 75000,
+      "type": "apartment",
+      "location": "north",
+      "rooms": 2,
+      "description": "Двухкомнатная просторная квартира в 3 минутах от метро.",
+      "image": "images/3.jpg",
+      "ownerId": 2
+    },
+    {
+      "id": "3",
+      "title": "Квартира-студия с панорамными окнами",
+      "address": "ул. Гаванская, 32",
+      "area": 50,
+      "floor": 20,
+      "price": 55000,
+      "type": "apartment",
+      "location": "west",
+      "rooms": 1,
+      "description": "Стильная студия с панорамными окнами в новом ЖК.",
+      "image": "images/4.jpg",
+      "ownerId": 2
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1771407815972,
+      "userId": 1771407764729,
+      "propertyId": "1",
+      "propertyTitle": "Современная студия в центре",
+      "startDate": "2026-02-20",
+      "status": "активно",
+      "createdAt": "2026-02-18T09:43:35.972Z"
+    }
+  ],
+  "favorites": []
+}
