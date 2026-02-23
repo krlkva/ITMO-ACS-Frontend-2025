@@ -1,0 +1,278 @@
+
+
+:root {
+  /* Светлая тема */
+  --bg-body: #f8f9fa;
+  --bg-card: #ffffff;
+  --bg-nav: #ffffff;
+  --bg-footer: #ffffff;
+  --bg-hover: #f0f0f0;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6c757d;
+  --link-color: #0056b3;
+  --border-light: #f0f0f0;
+  --border-color: #e0e0e0;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  --card-shadow-hover: 0 8px 16px rgba(0,0,0,0.1);
+  --btn-primary-bg: #1a1a1a;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #333333;
+  --btn-outline-border: #1a1a1a;
+  --btn-outline-text: #1a1a1a;
+  --btn-outline-hover-bg: #1a1a1a;
+  --btn-outline-hover-text: #ffffff;
+  --badge-bg: #f0f0f0;
+  --badge-text: #1a1a1a;
+}
+
+/* Темная тема */
+[data-theme="dark"] {
+  --bg-body: #1a1a1a;
+  --bg-card: #2d2d2d;
+  --bg-nav: #2d2d2d;
+  --bg-footer: #2d2d2d;
+  --bg-hover: #3d3d3d;
+  --text-primary: #f0f0f0;
+  --text-secondary: #cccccc;
+  --text-muted: #a0a0a0;
+  --link-color: #66b0ff;
+  --border-light: #333333;
+  --border-color: #404040;
+  --card-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  --card-shadow-hover: 0 8px 16px rgba(0,0,0,0.5);
+  --btn-primary-bg: #0066cc;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #0052a3;
+  --btn-outline-border: #f0f0f0;
+  --btn-outline-text: #f0f0f0;
+  --btn-outline-hover-bg: #f0f0f0;
+  --btn-outline-hover-text: #1a1a1a;
+  --badge-bg: #404040;
+  --badge-text: #f0f0f0;
+}
+
+/* Базовые стили */
+body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* Навигация */
+.navbar {
+  background-color: var(--bg-nav) !important;
+  border-bottom: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  color: var(--text-primary) !important;
+}
+
+.nav-link {
+  color: var(--text-primary) !important;
+}
+
+.nav-link:hover {
+  color: var(--link-color) !important;
+}
+
+/* Кнопки */
+.btn-outline-dark {
+  border-color: var(--btn-outline-border) !important;
+  color: var(--btn-outline-text) !important;
+  background: transparent;
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--btn-outline-hover-bg) !important;
+  color: var(--btn-outline-hover-text) !important;
+}
+
+.btn-dark {
+  background-color: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+  border: none;
+}
+
+.btn-dark:hover {
+  background-color: var(--btn-primary-hover) !important;
+}
+
+/* Футер */
+.footer {
+  background-color: var(--bg-footer);
+  border-top: 1px solid var(--border-light);
+  color: var(--text-muted);
+}
+
+/* Утилиты */
+.badge-soft {
+  background-color: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 0.5rem 1.5rem;
+  border-radius: 40px;
+  display: inline-block;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+/* Формы */
+.form-control {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+.form-control:focus {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  border-color: var(--link-color);
+  box-shadow: 0 0 0 0.2rem rgba(102, 176, 255, 0.25);
+}
+
+/* Карточки */
+.property-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.property-price {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.property-price .period {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+.form-control {
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="password"].form-control {
+  height: auto;
+  padding: 0.75rem 1.25rem;
+  line-height: 1.5;
+}
+
+.auth-form .form-control {
+  max-width: 100%;
+}
+
+
+
+
+.property-address span,
+.property-address i,
+.property-address {
+  color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .property-address span,
+[data-theme="dark"] .property-address i,
+[data-theme="dark"] .property-address {
+  color: #cccccc !important;  
+}
+
+.footer {
+  background-color: var(--bg-footer);
+  border-top: 1px solid var(--border-light);
+  padding: 1.5rem 0;
+  margin-top: auto;
+}
+
+.footer .text-muted,
+.footer p,
+.footer span,
+.footer small {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .footer .text-muted,
+[data-theme="dark"] .footer p,
+[data-theme="dark"] .footer span,
+[data-theme="dark"] .footer small {
+  color: #a0a0a0 !important;  
+}
+
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item a {
+  color: var(--link-color);
+}
+
+.breadcrumb-item.active {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .breadcrumb-item.active {
+  color: #a0a0a0 !important;
+}
+
+
+.property-card .text-muted,
+.property-card small,
+.property-card .card-text {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .property-card .text-muted,
+[data-theme="dark"] .property-card small,
+[data-theme="dark"] .property-card .card-text {
+  color: #cccccc !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .text-muted {
+  color: #cccccc !important;
+}
+
+.property-card .card-title,
+.property-card h3,
+.property-card h5,
+.property-card .h5 {
+  color: var(--text-primary) !important;
+  text-decoration: none;
+}
+
+
+.property-card a {
+  text-decoration: none;
+}
+
+.property-card a .card-title,
+.property-card a h3,
+.property-card a h5 {
+  color: var(--text-primary) !important;
+}
+
+.property-card a:hover .card-title {
+  color: var(--link-color) !important;  
+}
