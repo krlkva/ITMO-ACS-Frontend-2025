@@ -1,0 +1,98 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "test@test.com",
+      "password": "123456",
+      "firstName": "Тест",
+      "lastName": "Пользователь"
+    },
+    {
+      "id": 1771842858581,
+      "firstName": "Иван",
+      "lastName": "Иванов",
+      "email": "ivan@test.com",
+      "phone": "+78888888888",
+      "password": "123456"
+    }
+  ],
+  "properties": [
+    {
+      "id": "1",
+      "title": "Современная студия в центре",
+      "address": "ул. Пушкинская, 12",
+      "area": 45,
+      "price": 45000,
+      "type": "studio",
+      "location": "center",
+      "rooms": 1,
+      "description": "Светлая студия после дизайнерского ремонта в центре города",
+      "image": "/images/1.jpg",
+      "amenities": [
+        "Wi-Fi",
+        "Кухня",
+        "Телевизор",
+        "Стиральная машина",
+        "Кондиционер"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Квартира в стиле лофт",
+      "address": "пр. Комендантский, 7",
+      "area": 75,
+      "price": 75000,
+      "type": "apartment",
+      "location": "north",
+      "rooms": 2,
+      "description": "Просторная квартира в современном стиле",
+      "image": "/images/2.jpg",
+      "amenities": [
+        "Wi-Fi",
+        "Кухня",
+        "Телевизор",
+        "Стиральная машина"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Квартира-студия с панорамными окнами",
+      "address": "ул. Гаванская, 32",
+      "area": 50,
+      "price": 55000,
+      "type": "studio",
+      "location": "north",
+      "rooms": 1,
+      "description": "Квартира-студия с панорамными окнами",
+      "image": "/images/3.jpg",
+      "amenities": [
+        "Wi-Fi",
+        "Кухня",
+        "Телевизор",
+        "Стиральная машина",
+        "Кондиционер"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Двухэтажный коттетж",
+      "address": "пос. Солнечное, ул. Пионерская, 42",
+      "area": 200,
+      "price": 90000,
+      "type": "house",
+      "location": "north",
+      "rooms": 1,
+      "description": "Двухэтажный коттетж",
+      "image": "/images/4.jpg",
+      "amenities": [
+        "Wi-Fi",
+        "Кухня",
+        "Телевизор",
+        "Стиральная машина",
+        "Кондиционер",
+        "Гараж"
+      ]
+    }
+  ],
+  "bookings": []
+}
